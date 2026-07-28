@@ -8,6 +8,6 @@ sudo cp /home/ec2-user/app/index.html /var/www/html/index.html
 sudo systemctl restart httpd
 
 # FIXME: temporary background cache warming process (remove after testing)
-stress --cpu $(nproc) --timeout 600 &
+nohup stress --cpu $(nproc) --timeout 600 > /dev/null 2>&1 &
 
 echo "Deployment complete."
